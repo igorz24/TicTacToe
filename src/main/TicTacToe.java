@@ -79,11 +79,9 @@ public class TicTacToe {
         }
 
         // Check both diagonals
-        if(checkSingleLine(0,0,1,1) || checkSingleLine(size-1,0,-1,1))
-            return true;
+        return checkSingleLine(0, 0, 1, 1) || checkSingleLine(size - 1, 0, -1, 1);
 
         // No one won yet
-        return false;
     }
 
     /* Checks if all the chars in a given line are the same. Returns True if they are, False otherwise.
@@ -112,9 +110,7 @@ public class TicTacToe {
 
     // Checks if board is full. Returns true fs there is no space left to play.
     public boolean isBoardFull(){
-        if (noFilledSpaces >= size*size)
-            return true;
-        return false;
+        return noFilledSpaces >= size * size;
     }
 
     // Changes the active player
