@@ -5,7 +5,7 @@ package main;
 public class TicTacToe {
 
     private char[][] gameBoard;
-    private int size = 3;
+    private final int size = 3;
     //active player's char
     private char activePlayerChar;
     // Variable which helps in win condition checking
