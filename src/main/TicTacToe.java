@@ -1,6 +1,8 @@
 package main;
 
 
+import java.util.Arrays;
+
 // Game Class
 public class TicTacToe {
 
@@ -45,7 +47,7 @@ public class TicTacToe {
     }
 
     // Fills the given space in board with a provided char
-    public boolean makeMove(char XO, int row, int column){
+    public boolean makeMove(char XO, int column, int row){
         // if out of board range - return false
         if(row < 0 || column < 0 || row >= size || column >= size)
             return false;
@@ -120,4 +122,30 @@ public class TicTacToe {
         else activePlayerChar = 'X';
     }
 
+    // Return board as a single String
+    @Override
+    public String toString() {
+        if (gameBoard == null) return "board empty";
+
+        else{
+            String tempString = "";
+            final char a = 'a';
+            //Display column numbers
+           tempString += "  1 2 3\n";
+
+            // For each row
+            for(int i = 0; i < size; i++){
+                // Display row letters
+                tempString += (char)(i+a);
+                // for each field in this row
+                for(int j = 0; j < size; j++)
+                    tempString += " " + gameBoard[i][j];
+                tempString += "\n";
+            }
+            tempString += "\n";
+
+
+           return tempString;
+        }
+    }
 }

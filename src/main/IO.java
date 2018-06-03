@@ -8,6 +8,16 @@ import java.util.Scanner;
     private int row;
     private int column;
 
+    // Enum that helps to describe which message to print
+    public enum messageType{
+        welcomePlayer,
+        askForInput,
+        informWhoseTurnItIs,
+        informAboutWrongInput,
+        informAboutWrongMove,
+        informWhoWon,
+        informAboutTie
+     }
 
     // Method that prints the game board
     void printGameBoard(char[][] board){
@@ -29,6 +39,13 @@ import java.util.Scanner;
         System.out.println("\n");
     }
 
+    // Print String to the console
+     void printString(String str){
+
+         System.out.println(str);
+
+     }
+
     // Gets the input from user- returs true if everything correcr, false otherwise
     boolean getInputFromUser(){
         // Create scanner
@@ -44,20 +61,21 @@ import java.util.Scanner;
 
     // Prints message of the provided number on screen
     void printMessage(int messageNumber, char playersChar){
-        switch(messageNumber){
-            case 0:
+        messageType mt = messageType.values()[messageNumber];
+        switch(mt){
+            case welcomePlayer:
                 System.out.println("\nWitamy w grze kółko i krzyżyk\n"); break;
-            case 1:
-                System.out.println("Wprowadź dane\n"); break;
-            case 2:
+            case askForInput:
+                System.out.println("Wprowadź dane (<litera><liczba>)\n"); break;
+            case informWhoseTurnItIs:
                 System.out.println("Teraz ruch gracza: " + playersChar + "\n"); break;
-            case 3:
+            case informAboutWrongInput:
                 System.out.println("Wprowadzono błędne dane. Poprawny format to <liczba><litera> lub odwrotnie\n"); break;
-            case 4:
+            case informAboutWrongMove:
                 System.out.println("Niepoprawny ruch, pole jest już zajęte.\n"); break;
-            case 5:
+            case informWhoWon:
                 System.out.println("Zwycięzcą jest gracz " + playersChar + "\n"); break;
-            case 6:
+            case informAboutTie:
                 System.out.println("Doszło do remisu\n"); break;
             default:
                 System.out.println("Niepoprawny komunikat\n"); break;
